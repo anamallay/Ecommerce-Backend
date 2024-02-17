@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var auth_1 = require("../middlewares/auth");
+var vaildations_1 = require("../validation/vaildations");
+var runValidation_1 = require("../validation/runValidation");
+var usersController_1 = require("../controller/usersController");
+var uploadFile_1 = require("../middlewares/uploadFile");
+var router = (0, express_1.Router)();
+router.get('/', auth_1.isLoggedIn, auth_1.isAdmin, usersController_1.getAllUsers);
+router.get('/:id', auth_1.isLoggedIn, usersController_1.getSingleUser);
+router.post('/register', uploadFile_1.uploadUser.single('image'), auth_1.isLoggedOut, vaildations_1.userValidation, runValidation_1.runValidation, usersController_1.registerUser);
+router.post('/activate-account/:token', auth_1.isLoggedOut, usersController_1.activeUser);
+router.put('/:id', uploadFile_1.uploadUser.single('image'), auth_1.isLoggedIn, vaildations_1.updateUserValidation, runValidation_1.runValidation, usersController_1.updateSingleUser);
+router.delete('/:id', auth_1.isLoggedIn, auth_1.isAdmin, usersController_1.deleteUser);
+router.put('/ban/:id', auth_1.isLoggedIn, auth_1.isAdmin, usersController_1.banUser);
+router.put("/unban/:id", auth_1.isLoggedIn, auth_1.isAdmin, usersController_1.unbanUser);
+exports.default = router;
