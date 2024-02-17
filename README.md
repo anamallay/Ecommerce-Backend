@@ -68,21 +68,21 @@ Manages the product inventory, including listing products, adding new products, 
 ### Order Processing (/api/orders)
 Covers the entire order process, from payment processing to order tracking and management.
 
-**POST** /api/orders/process-payment: Process payment for an order. 
+**POST** `/api/orders/process-payment` : Process payment for an order. 
 
-**GET** /api/orders: List all orders.
+**GET** `/api/orders` : List all orders.
 
-**GET** /api/orders/:id: Retrieve details of a specific order.
+**GET** `/api/orders/:id` : Retrieve details of a specific order.
 
-**GET** /api/orders/getBuyer/:userId: Fetch orders made by a specific buyer.
+**GET** `/api/orders/getBuyer/:userId` : Fetch orders made by a specific buyer.
 
-**DELETE** /api/orders/:orderId: Cancel and delete an order.
+**DELETE** `/api/orders/:orderId` : Cancel and delete an order.
 
-**PUT** /api/orders/:orderId/status: Update the status of an order.
+**PUT** `/api/orders/:orderId/status` : Update the status of an order.
 
-**GET** /api/orders/braintree/token: Generate a token for Braintree payment processing.
+**GET** `/api/orders/braintree/token` : Generate a token for Braintree payment processing.
 
-**POST** /api/orders/braintree/payment: Process a payment through Braintree.
+**POST** `/api/orders/braintree/payment` : Process a payment through Braintree.
 
 ### Product Categories (/api/categories)
 Facilitates the organization of products into categories, making it easier for users to browse and find products.
