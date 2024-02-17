@@ -174,42 +174,6 @@ var createProduct = function (productInput) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.createProduct = createProduct;
-// export const updateProduct = async (slug: string, product: productUpdateType) => {
-//   const { title, sold, quantity, countInStock } = product as IProduct
-//   const isProductExist = await Product.exists({ slug: slug })
-//   if (!isProductExist) {
-//     throw createHttpError(404, `Product with slug ${slug} does not exist`)
-//   }
-//   // if (title) {
-//   //   const isTitleExist = await Product.exists({ title: title })
-//   //   if (isTitleExist) {
-//   //     throw createHttpError(409, `Product with title ${title} already exists`)
-//   //   }
-//   // }
-//   // Find the current product by slug
-//   const existingProduct = await Product.findOne({ slug: slug })
-//   if (!existingProduct) {
-//     throw createHttpError(404, `Product with slug ${slug} does not exist`)
-//   }
-//   // Check for title uniqueness, excluding the current product
-//   if (title) {
-//     const isTitleExist = await Product.findOne({ title: title, _id: { $ne: existingProduct._id } })
-//     if (isTitleExist) {
-//       throw createHttpError(409, `Product with title ${title} already exists`)
-//     }
-//   }
-//   const updatedProduct = await Product.findOneAndUpdate(
-//     { slug: slug },
-//     {
-//       ...product,
-//       slug: title && typeof title === 'string' ? slugify(title, { lower: true }) : slug,
-//       title,
-//       sold: quantity - countInStock > 0 ? quantity - countInStock : sold,
-//     },
-//     { new: true }
-//   )
-//   return updatedProduct
-// }
 var updateProduct = function (slug, productData) { return __awaiter(void 0, void 0, void 0, function () {
     var title, existingProduct, isTitleExist, updatedProduct;
     return __generator(this, function (_a) {

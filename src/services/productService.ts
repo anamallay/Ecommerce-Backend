@@ -10,11 +10,11 @@ interface IProductData {
   title?: string
   price?: number
   description?: string
-  category?: string[] // Adjust according to your actual category structure
+  category?: string[]
   quantity?: number
   sold?: number
   shipping?: number
-  image?: string // Assuming this is a URL to the image
+  image?: string
 }
 
 export const getProductsWithPagination = async (pageParam: string, limitParam: string, search: string) => {
@@ -119,52 +119,10 @@ export const createProduct = async (productInput: ProductInput): Promise<IProduc
   return newProduct.save()
 }
 
-// export const updateProduct = async (slug: string, product: productUpdateType) => {
-//   const { title, sold, quantity, countInStock } = product as IProduct
-
-//   const isProductExist = await Product.exists({ slug: slug })
-//   if (!isProductExist) {
-//     throw createHttpError(404, `Product with slug ${slug} does not exist`)
-//   }
-
-//   // if (title) {
-//   //   const isTitleExist = await Product.exists({ title: title })
-//   //   if (isTitleExist) {
-//   //     throw createHttpError(409, `Product with title ${title} already exists`)
-//   //   }
-//   // }
-//   // Find the current product by slug
-//   const existingProduct = await Product.findOne({ slug: slug })
-//   if (!existingProduct) {
-//     throw createHttpError(404, `Product with slug ${slug} does not exist`)
-//   }
-
-//   // Check for title uniqueness, excluding the current product
-//   if (title) {
-//     const isTitleExist = await Product.findOne({ title: title, _id: { $ne: existingProduct._id } })
-//     if (isTitleExist) {
-//       throw createHttpError(409, `Product with title ${title} already exists`)
-//     }
-//   }
-
-//   const updatedProduct = await Product.findOneAndUpdate(
-//     { slug: slug },
-//     {
-//       ...product,
-//       slug: title && typeof title === 'string' ? slugify(title, { lower: true }) : slug,
-//       title,
-//       sold: quantity - countInStock > 0 ? quantity - countInStock : sold,
-//     },
-//     { new: true }
-//   )
-
-//   return updatedProduct
-// }
 
 export const updateProduct = async (slug: string, productData: IProductData) => {
   const { title } = productData
 
-  // Ensure the product exists
   const existingProduct = await Product.findOne({ slug: slug })
   if (!existingProduct) {
     throw createHttpError(404, `Product with slug ${slug} does not exist`)
