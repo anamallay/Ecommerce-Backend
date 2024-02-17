@@ -8,6 +8,7 @@ import {
   deleteSingleProduct,
   getAllProducts,
   getAllProductsWithPagination,
+  getFilteredProducts,
   getSingleProductBySlug,
   updateSingleProduct,
 } from '../controller/productsController'
@@ -17,7 +18,7 @@ const router = Router()
 router.get('/', getAllProducts) // without pagination
 router.get('/pagination', getAllProductsWithPagination) //with pagination
 router.get('/:slug', getSingleProductBySlug)
-// router.get('/filtered-products', getFilteredProducts)
+router.get('/filtered-products', getFilteredProducts)
 router.post(
   '/',
   isLoggedIn,

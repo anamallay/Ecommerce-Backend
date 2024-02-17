@@ -10,7 +10,7 @@ var router = (0, express_1.Router)();
 router.get('/', productsController_1.getAllProducts); // without pagination
 router.get('/pagination', productsController_1.getAllProductsWithPagination); //with pagination
 router.get('/:slug', productsController_1.getSingleProductBySlug);
-// router.get('/filtered-products', getFilteredProducts)
+router.get('/filtered-products', productsController_1.getFilteredProducts);
 router.post('/', auth_1.isLoggedIn, auth_1.isAdmin, uploadFile_1.uploadProduct.single('image'), vaildations_1.ProductValidation, runValidation_1.runValidation, productsController_1.createSingleProduct);
 router.put('/:slug', auth_1.isLoggedIn, auth_1.isAdmin, uploadFile_1.uploadProduct.single('image'), vaildations_1.updateProductValidation, runValidation_1.runValidation, productsController_1.updateSingleProduct);
 router.delete('/:slug', auth_1.isLoggedIn, auth_1.isAdmin, productsController_1.deleteSingleProduct);
