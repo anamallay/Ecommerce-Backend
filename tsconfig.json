@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
+    "rootDirs": ["src","api"],
     "outDir": "dist",
     "types": ["node", "express"],
     "esModuleInterop": true,
