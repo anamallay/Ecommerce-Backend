@@ -4,12 +4,12 @@
     "module": "commonjs",
     "rootDirs": ["src","api"],
     "outDir": "dist",
-    "types": ["node", "express"],
+    // "types": ["node", "express"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "api/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"]
+  // "include": ["src/**/*", "api/**/*"],
+  // "exclude": ["node_modules", "**/*.spec.ts"]
 }
