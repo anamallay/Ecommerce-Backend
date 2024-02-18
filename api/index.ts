@@ -1,18 +1,20 @@
 import express, { Application } from 'express'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
-import { dev } from './config'
-import { connectDB } from './config/db'
-import authRouter from './routers/authRoute'
-import productsRouter from './routers/productsRoute'
-import usersRouter from './routers/usersRoute'
-import ordersRouter from './routers/ordersRoute'
-import categoriesRouter from './routers/categoriesRoute'
-import myLogger from './middlewares/logger'
-import { errorHandler } from './middlewares/errorHandler'
-import { createHttpError } from './util/createHttpError'
+import authRouter from '../src/routers/authRoute'
+import usersRouter from '../src/routers/usersRoute'
+import ordersRouter from '../src/routers/ordersRoute'
+import categoriesRouter from '../src/routers/categoriesRoute'
+import productsRouter from '../src/routers/productsRoute'
+import myLogger from '../src/middlewares/logger'
+import { errorHandler } from '../src/middlewares/errorHandler'
+import { createHttpError } from '../src/util/createHttpError'
 import cors from 'cors'
-import contactRoute from './routers/contactRoute'
+import contactRoute from '../src/routers/contactRoute'
+import { dev } from '../src/config'
+import { connectDB } from '../src/config/db'
+
+
 
 const app: Application = express()
 const port: number = dev.app.port
