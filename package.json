@@ -4,7 +4,8 @@
   "main": "server.js",
   "scripts": {
     "ts-watch": "tsc -w",
-    "start": "nodemon --watch \"src/**/*.ts\" --exec ts-node api/server.ts"
+    "start": "nodemon --watch \"src/**/*.ts\" --exec ts-node src/server.ts",
+    "build": "tsc"
   },
   "dependencies": {
     "@types/braintree": "^3.3.11",
