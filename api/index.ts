@@ -31,7 +31,9 @@ app.use(
     credentials: true,
   })
 )
-
+app.get('/', (req, res) => {
+  res.send('healthe checkup')
+})
 app.use('/api/auth', authRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/users', usersRouter)
@@ -41,9 +43,9 @@ app.use('/api/contactus', contactRoute)
 
 app.listen(port, async () => {
   console.log('Server running at http://localhost:' + port)
-  connectDB()
+  // connectDB()
 })
-// connectDB()
+connectDB()
 app.use((res, req, next) => {
   const error = createHttpError(404, 'Router no found')
   next(error)
