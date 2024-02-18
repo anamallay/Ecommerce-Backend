@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "ts-watch": "tsc -w",
-    "start": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" api/index.ts",
-    "build": "tsc"
+    "start": "nodemon --watch \"src/**/*.ts\" --exec \"ts-node\" api/index.ts"
   },
   "dependencies": {
     "@types/braintree": "^3.3.11",
