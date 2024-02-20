@@ -14,7 +14,9 @@ export const dev = {
     braintreePrivateKey: process.env.BRINTREE_PRIVATE_KEY,
   },
   db: {
-    url: process.env.MONGODB_URL,
+    url:
+      process.env.MONGODB_URL ||
+      'mongodb+srv://amalalikhardli:NZYdbQgOieHdsvjc@datadb.epl9btn.mongodb.net/DATADB',
   },
   cloud: {
     cloudinaryName: process.env.CLOUDINARY_NAME,
