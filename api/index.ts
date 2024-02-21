@@ -14,8 +14,6 @@ import contactRoute from '../src/routers/contactRoute'
 import { dev } from '../src/config'
 import { connectDB } from '../src/config/db'
 
-
-
 const app: Application = express()
 const port: number = dev.app.port
 
@@ -25,12 +23,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
 app.use(cookieParser())
 app.use('/public', express.static('public'))
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//     credentials: true,
-//   })
-// )
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  })
+)
 app.get('/', (req, res) => {
   res.send('healthe checkup')
 })
