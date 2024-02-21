@@ -43,7 +43,7 @@ app.use('/api/contactus', contactRoute)
 
 app.listen(port, async () => {
   console.log('Server running at http://localhost:' + port)
-  // connectDB()
+  connectDB()
 })
 connectDB()
 app.use((res, req, next) => {
