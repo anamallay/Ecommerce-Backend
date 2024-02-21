@@ -17,7 +17,7 @@ import { connectDB } from '../src/config/db'
 const app: Application = express()
 const port: number = dev.app.port
 
-app.use(myLogger)
+// app.use(myLogger)
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(morgan('dev'))
