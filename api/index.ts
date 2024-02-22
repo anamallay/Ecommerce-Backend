@@ -17,12 +17,20 @@ import { connectDB } from '../src/config/db'
 const app: Application = express()
 const port: number = dev.app.port
 
-app.use(myLogger)
+// app.use(myLogger)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.use(cookieParser())
 app.use('/public', express.static('public'))
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+  res.header('Access-Control-Allow-Credentials', 'true')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+
+  connectDB()
+  next()
+})
 app.use(
   cors({
     origin: 'http://localhost:3000',
@@ -43,7 +51,7 @@ app.listen(port, async () => {
   console.log('Server running at http://localhost:' + port)
   // connectDB()
 })
-connectDB()
+// connectDB()
 app.use((res, req, next) => {
   const error = createHttpError(404, 'Router no found')
   next(error)
