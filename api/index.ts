@@ -19,7 +19,7 @@ const port: number = dev.app.port
 
 // app.use(myLogger)
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.use(cookieParser())
 app.use('/public', express.static('public'))
