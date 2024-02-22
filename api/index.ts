@@ -23,11 +23,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
 app.use(cookieParser())
 app.use('/public', express.static('public'))
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
   res.header('Access-Control-Allow-Credentials', 'true')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-
   connectDB()
   next()
 })
@@ -47,14 +47,20 @@ app.use('/api/orders', ordersRouter)
 app.use('/api/categories', categoriesRouter)
 app.use('/api/contactus', contactRoute)
 
-app.listen(port, async () => {
-  console.log('Server running at http://localhost:' + port)
-  // connectDB()
-})
-// connectDB()
-app.use((res, req, next) => {
-  const error = createHttpError(404, 'Router no found')
+// app.listen(port, async () => {
+//   console.log('Server running at http://localhost:' + port)
+//   // connectDB()
+// })
+// // connectDB()
+// Correct placement of connectDB
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log('Server running at http://localhost:' + port);
+  });
+});
+
+app.use((req, res, next) => {
+  const error = createHttpError(404, 'Route not found')
   next(error)
 })
-
 app.use(errorHandler)
