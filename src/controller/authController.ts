@@ -12,7 +12,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
             'access_token',
              accessToken,
              {
-                maxAge: 60 * 60 * 1000, // 60 minutes
+                maxAge: 10 * 60 * 1000, // 10 minutes
                 httpOnly: true,
                  sameSite: 'none',
                  secure: true
