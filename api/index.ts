@@ -6,7 +6,7 @@ import usersRouter from '../src/routers/usersRoute'
 import ordersRouter from '../src/routers/ordersRoute'
 import categoriesRouter from '../src/routers/categoriesRoute'
 import productsRouter from '../src/routers/productsRoute'
-// import myLogger from '../src/middlewares/logger'
+import myLogger from '../src/middlewares/logger'
 import { errorHandler } from '../src/middlewares/errorHandler'
 import { createHttpError } from '../src/util/createHttpError'
 import cors from 'cors'
@@ -17,7 +17,7 @@ import { connectDB } from '../src/config/db'
 const app: Application = express()
 const port: number = dev.app.port
 
-// app.use(myLogger)
+app.use(myLogger)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(morgan('dev'))
