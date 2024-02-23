@@ -49,9 +49,8 @@ app.use('/api/contactus', contactRoute)
 
 // app.listen(port, async () => {
 //   console.log('Server running at http://localhost:' + port)
-//   // connectDB()
 // })
-// // connectDB()
+
 // Correct placement of connectDB
 connectDB().then(() => {
   app.listen(port, () => {
