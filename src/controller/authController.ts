@@ -15,7 +15,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
                 maxAge: 10 * 60 * 1000, // 10 minutes
                 httpOnly: true,
                  sameSite: 'none',
-                 secure: true
+                //  secure: true
             });
         res.status(200).send({ 
             message: 'You have successfully logged in',
