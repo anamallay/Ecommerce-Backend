@@ -8,16 +8,14 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     try {
         const user = await verifyUserData(req);
         const accessToken = jwt.sign({ _id: user._id }, dev.app.jwtUserAccessKey, { expiresIn: '10m' });
-        res.cookie(
-            'access_token',
-             accessToken,
-             {
-                maxAge: 30 * 60 * 1000, // 10 minutes
-                httpOnly: true,
-                 sameSite: 'none',
-                 //  secure: true
-                 secure: false
-            });
+        res.cookie('access_token', accessToken, {
+          maxAge: 30 * 60 * 1000, // 10 minutes
+          httpOnly: true,
+        //   sameSite: 'none',
+          //  secure: true
+          secure: false,
+          sameSite: 'lax',
+        })
         res.status(200).send({ 
             message: 'You have successfully logged in',
             payload:  user
