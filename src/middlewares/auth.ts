@@ -13,7 +13,7 @@ export const isLoggedIn = (req: CustomRequest, res: Response, next: NextFunction
   try {
     const accessToken = req.cookies.access_token
     console.log('accessToken', accessToken)
-
+    console.log('req.cookies', req.cookies) 
 
     if (!accessToken) {
       throw createHttpError(401, 'You are not logged in')
