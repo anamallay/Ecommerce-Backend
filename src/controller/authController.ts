@@ -11,9 +11,9 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         res.cookie('access_token', accessToken, {
           maxAge: 30 * 60 * 1000, // 10 minutes
           httpOnly: true,
-        //   sameSite: 'none',
+          sameSite: 'lax',
           //  secure: true
-        //   secure: false,
+          secure: true,
         })
         res.status(200).send({ 
             message: 'You have successfully logged in',
