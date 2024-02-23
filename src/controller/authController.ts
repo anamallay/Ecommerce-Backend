@@ -14,7 +14,6 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
         //   sameSite: 'none',
           //  secure: true
           secure: false,
-          sameSite: 'lax',
         })
         res.status(200).send({ 
             message: 'You have successfully logged in',
