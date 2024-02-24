@@ -31,12 +31,14 @@ app.use((req, res, next) => {
   connectDB()
   next()
 })
+
 app.use(
   cors({
     origin: 'http://localhost:3000',
     credentials: true,
   })
 )
+
 app.get('/', (req, res) => {
   res.send('healthe checkup')
 })
@@ -47,9 +49,6 @@ app.use('/api/orders', ordersRouter)
 app.use('/api/categories', categoriesRouter)
 app.use('/api/contactus', contactRoute)
 
-// app.listen(port, async () => {
-//   console.log('Server running at http://localhost:' + port)
-// })
 
 // Correct placement of connectDB
 connectDB().then(() => {
