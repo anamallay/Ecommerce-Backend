@@ -21,8 +21,8 @@ router.get('/:slug', getSingleProductBySlug)
 router.get('/filtered-products', getFilteredProducts)
 router.post(
   '/',
-  isLoggedIn,
   /*
+  isLoggedIn,
   isAdmin,
   */
   uploadProduct.single('image'),
@@ -32,8 +32,8 @@ router.post(
 )
 router.put(
   '/:slug',
-  isLoggedIn,
   /*
+  isLoggedIn,
   isAdmin,
   */
   uploadProduct.single('image'),
@@ -41,6 +41,6 @@ router.put(
   runValidation,
   updateSingleProduct
 )
-router.delete('/:slug', isLoggedIn,/* isAdmin,*/ deleteSingleProduct)
+router.delete('/:slug',/* isLoggedIn, isAdmin,*/ deleteSingleProduct)
 
 export default router
