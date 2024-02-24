@@ -10,8 +10,8 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
     const accessToken = jwt.sign({ _id: user._id }, dev.app.jwtUserAccessKey, { expiresIn: '10m' })
     res.cookie('access_token', accessToken, {
       maxAge: 30 * 60 * 1000, // 10 minutes
-    //   httpOnly: true,
-    //   sameSite: 'none',
+      httpOnly: true,
+      sameSite: 'none',
       // secure: true,
     })
     res.status(200).send({
