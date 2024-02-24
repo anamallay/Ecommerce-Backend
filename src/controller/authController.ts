@@ -7,7 +7,7 @@ import { dev } from '../config'
 export const login = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const user = await verifyUserData(req)
-    const accessToken = jwt.sign({ _id: user._id }, dev.app.jwtUserAccessKey, { expiresIn: '1m' })
+    const accessToken = jwt.sign({ _id: user._id }, dev.app.jwtUserAccessKey, { expiresIn: '1h' })
     res.cookie('access_token', accessToken, {
       maxAge: 30 * 60 * 1000, // 10 minutes
       httpOnly: true,
