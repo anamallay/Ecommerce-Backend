@@ -25,7 +25,6 @@ router.post(
   /*
   isLoggedIn,
   isAdmin,
-  
   uploadProduct.single('image'),
   */
   uploadProductImg,
