@@ -12,7 +12,7 @@ import {
   unbanUser,
   updateSingleUser,
 } from '../controller/usersController'
-import { uploadUser } from '../middlewares/uploadFile'
+import { uploadProductImg } from '../middlewares/uploadFile'
 
 const router = Router()
 
@@ -20,7 +20,10 @@ router.get('/', isLoggedIn, isAdmin, getAllUsers)
 router.get('/:id', isLoggedIn, getSingleUser)
 router.post(
   '/register',
+  /*
   uploadUser.single('image'),
+  */
+  uploadProductImg,
   isLoggedOut,
   userValidation,
   runValidation,
@@ -29,7 +32,10 @@ router.post(
 router.post('/activate-account/:token', isLoggedOut, activeUser)
 router.put(
   '/:id',
+  /*
   uploadUser.single('image'),
+  */
+  uploadProductImg,
   isLoggedIn,
   updateUserValidation,
   runValidation,

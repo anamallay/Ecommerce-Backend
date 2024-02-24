@@ -91,7 +91,7 @@ export const deleteSingleProduct = async (req: Request, res: Response, next: Nex
     if (product.image) {
       const urlParts = product.image.split('/')
       const fileName = urlParts[urlParts.length - 1]
-      const publicId = fileName.split('.')[0] 
+      const publicId = fileName.split('.')[0]
       await cloudinary.uploader.destroy(`sda-product/${publicId}`)
     }
 
@@ -119,8 +119,17 @@ export const createSingleProduct = async (req: Request, res: Response, next: Nex
       image: 'default-image-path',
     }
 
+    // if (req.file) {
+    //   const response = await cloudinary.uploader.upload(req.file.path, {
+    //     folder: 'sda-product',
+    //   })
+
+    //   productInput.image = response.secure_url
+    // }
     if (req.file) {
-      const response = await cloudinary.uploader.upload(req.file.path, {
+
+      const fileStr = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`
+      const response = await cloudinary.uploader.upload(fileStr, {
         folder: 'sda-product',
       })
 

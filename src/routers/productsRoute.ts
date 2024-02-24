@@ -12,7 +12,8 @@ import {
   getSingleProductBySlug,
   updateSingleProduct,
 } from '../controller/productsController'
-import { uploadProduct } from '../middlewares/uploadFile'
+import { uploadProductImg } from '../middlewares/uploadFile'
+// import { uploadProduct } from '../middlewares/uploadFile'
 
 const router = Router()
 router.get('/', getAllProducts) // without pagination
@@ -24,8 +25,10 @@ router.post(
   /*
   isLoggedIn,
   isAdmin,
-  */
+  
   uploadProduct.single('image'),
+  */
+  uploadProductImg,
   ProductValidation,
   runValidation,
   createSingleProduct
@@ -35,8 +38,9 @@ router.put(
   /*
   isLoggedIn,
   isAdmin,
-  */
   uploadProduct.single('image'),
+  */
+  uploadProductImg,
   updateProductValidation,
   runValidation,
   updateSingleProduct
