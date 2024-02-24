@@ -37,6 +37,6 @@ router.put(
   runValidation,
   updateSingleProduct
 )
-router.delete('/:slug', isLoggedIn, isAdmin, deleteSingleProduct)
+router.delete('/:slug', /* isLoggedIn, isAdmin,*/ deleteSingleProduct)
 
 export default router
