@@ -35,12 +35,12 @@ router.put(
   /*
   isLoggedIn,
   isAdmin,
-  */
   uploadProduct.single('image'),
+  */
   updateProductValidation,
   runValidation,
   updateSingleProduct
 )
-router.delete('/:slug',/* isLoggedIn, isAdmin,*/ deleteSingleProduct)
+router.delete('/:slug', /* isLoggedIn, isAdmin,*/ deleteSingleProduct)
 
 export default router
