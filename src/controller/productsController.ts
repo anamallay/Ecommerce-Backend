@@ -120,7 +120,12 @@ export const createSingleProduct = async (req: Request, res: Response, next: Nex
     }
 
     if (req.file) {
-      const response = await cloudinary.uploader.upload(req.file.path, {
+      // const response = await cloudinary.uploader.upload(req.file.path, {
+      //   folder: 'sda-product',
+      // })
+      // Convert buffer to a base64 string or use a direct buffer upload if supported
+      const fileStr = `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}`
+      const response = await cloudinary.uploader.upload(fileStr, {
         folder: 'sda-product',
       })
 

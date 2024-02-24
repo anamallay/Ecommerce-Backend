@@ -35,10 +35,10 @@ router.put(
   /*
   isLoggedIn,
   isAdmin,
+  */
   uploadProduct.single('image'),
   updateProductValidation,
   runValidation,
-  */
   updateSingleProduct
 )
 router.delete('/:slug', /* isLoggedIn, isAdmin,*/ deleteSingleProduct)

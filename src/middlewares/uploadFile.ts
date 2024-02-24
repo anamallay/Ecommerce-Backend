@@ -38,24 +38,23 @@ const userStorge = multer.diskStorage({
 //   // limits: {fileSize: 1024 * 1024 * 1},
 //   fileFilter: fileFilter,
 // })
-// *================*//
-// The fileFilter remains the same
-const fileFilter = (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
-  const allowedTypes = ['image/jpeg', 'image/png'];
-  if (!allowedTypes.includes(file.mimetype)) {
-    console.log('Image type not allowed')
-    cb(null, false)
-  } else {
-    cb(null, true);
-  }
-};
 
-// Configure multer to use memory storage
+// *========*//
+const fileFilter = (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
+  const allowedTypes = ['image/jpeg', 'image/png']
+  if (!allowedTypes.includes(file.mimetype)) {
+    cb(null, false) // Reject the file
+  } else {
+    cb(null, true) // Accept the file
+  }
+}
+
 export const uploadProduct = multer({
   storage: storage,
   fileFilter: fileFilter,
-});
-// *================*//
+})
+// *========*//
+
 export const uploadUser = multer({
   storage: userStorge,
   fileFilter: fileFilter,
