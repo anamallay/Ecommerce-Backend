@@ -14,11 +14,12 @@ const router = Router()
 
 router.get('/', getAllCategories)
 router.get('/:id', isLoggedIn, isAdmin, getSingleCategoryById)
-router.post('/', isLoggedIn, /*isAdmin,*/ categoryValidations, runValidation, createSingleCategory)
+router.post('/', /*isLoggedIn, isAdmin,*/ categoryValidations, runValidation, createSingleCategory)
 router.put(
   '/:id',
+  /*
   isLoggedIn,
-  isAdmin,
+  isAdmin,*/
   updateCategoryValidations,
   runValidation,
   updateSingleCategory
