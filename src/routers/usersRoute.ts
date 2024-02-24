@@ -35,7 +35,7 @@ router.put(
   runValidation,
   updateSingleUser
 )
-router.delete('/:id', isLoggedIn, isAdmin, deleteUser)
-router.put('/ban/:id', isLoggedIn, isAdmin, banUser)
-router.put(`/unban/:id`, isLoggedIn, isAdmin, unbanUser)
+router.delete('/:id', /*isLoggedIn, isAdmin,*/ deleteUser)
+router.put('/ban/:id', /*isLoggedIn, isAdmin,*/ banUser)
+router.put(`/unban/:id`, /*isLoggedIn, isAdmin,*/ unbanUser)
 export default router

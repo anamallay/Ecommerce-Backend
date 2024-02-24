@@ -22,7 +22,9 @@ router.get('/filtered-products', getFilteredProducts)
 router.post(
   '/',
   isLoggedIn,
+  /*
   isAdmin,
+  */
   uploadProduct.single('image'),
   ProductValidation,
   runValidation,
@@ -31,12 +33,14 @@ router.post(
 router.put(
   '/:slug',
   isLoggedIn,
+  /*
   isAdmin,
+  */
   uploadProduct.single('image'),
   updateProductValidation,
   runValidation,
   updateSingleProduct
 )
-router.delete('/:slug', /* isLoggedIn, isAdmin,*/ deleteSingleProduct)
+router.delete('/:slug', isLoggedIn,/* isAdmin,*/ deleteSingleProduct)
 
 export default router

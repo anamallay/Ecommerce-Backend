@@ -13,16 +13,18 @@ import { isAdmin, isLoggedIn } from '../middlewares/auth'
 const router = Router()
 
 router.get('/', getAllCategories)
-router.get('/:id', isLoggedIn, isAdmin, getSingleCategoryById)
-router.post('/', /*isLoggedIn, isAdmin,*/ categoryValidations, runValidation, createSingleCategory)
+router.get('/:id', isLoggedIn, /*isAdmin,*/ getSingleCategoryById)
+router.post('/', isLoggedIn, /*isAdmin,*/ categoryValidations, runValidation, createSingleCategory)
 router.put(
   '/:id',
   isLoggedIn,
+  /*
   isAdmin,
+  */
   updateCategoryValidations,
   runValidation,
   updateSingleCategory
 )
-router.delete('/:id', /*isLoggedIn, isAdmin,*/ deleteSingleCategory)
+router.delete('/:id', isLoggedIn, /*isAdmin,*/ deleteSingleCategory)
 
 export default router
