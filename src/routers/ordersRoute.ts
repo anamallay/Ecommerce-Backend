@@ -20,7 +20,7 @@ const router = Router();
 
 router.post('/process-payment',isLoggedIn, processPayment);
 
-router.get('/', isLoggedIn, /*isAdmin,*/ getAllOrders)
+router.get('/', /* isLoggedIn, isAdmin,*/ getAllOrders)
 router.get('/:id', getOrderById);
 router.get('/getBuyer/:userId', getOrderByUser)
 router.delete('/:orderId', deleteOrderById)
