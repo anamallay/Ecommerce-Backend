@@ -14,7 +14,7 @@ export const login = async (req: CustomRequest, res: Response, next: NextFunctio
       maxAge: 15 * 60 * 1000, // 10 minutes
       httpOnly: true,
       sameSite: 'none',
-      secure: process.env.NODE_ENV === 'production', // Only use secure in production
+    //   secure: process.env.NODE_ENV === 'production', // Only use secure in production
     })
     res.status(200).send({
       message: 'You have successfully logged in',
