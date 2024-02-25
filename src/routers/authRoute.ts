@@ -18,6 +18,6 @@ const router = Router()
 router.post('/login', /* userId, limiter isLoggedOut, */ loginValidation, runValidation, login)
 router.post('/logout', logout)
 // forget and reset password
-router.post('/forget-password', isLoggedOut, forgetPassword)
-router.put('/reset-password', isLoggedOut, resetPassword)
+router.post('/forget-password', /*isLoggedOut,*/ forgetPassword)
+router.put('/reset-password', /*isLoggedOut,*/ resetPassword)
 export default router
