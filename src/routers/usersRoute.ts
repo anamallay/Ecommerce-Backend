@@ -21,7 +21,9 @@ router.get('/:id',/* isLoggedIn, */getSingleUser)
 router.post(
   '/register',
   uploadUser.single('image'),
+  /*
   isLoggedOut,
+  */
   userValidation,
   runValidation,
   registerUser
