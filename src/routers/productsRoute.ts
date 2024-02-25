@@ -12,7 +12,7 @@ import {
   getSingleProductBySlug,
   updateSingleProduct,
 } from '../controller/productsController'
-import { uploadProduct } from '../middlewares/uploadFile'
+import { uploadProduct, uploadProductImg } from '../middlewares/uploadFile'
 
 
 const router = Router()
@@ -26,7 +26,8 @@ router.post(
   isLoggedIn,
   isAdmin,
   */
-  uploadProduct.single('image'),
+  uploadProductImg,
+  // uploadProduct.single('image'),
   ProductValidation,
   runValidation,
   createSingleProduct

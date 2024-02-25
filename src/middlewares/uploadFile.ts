@@ -59,3 +59,15 @@ export const uploadUser = multer({
   storage: userStorge,
   fileFilter: fileFilter,
 })
+// this is a multer middlewares for uploading image
+export const uploadProductImg = multer({
+  storage: productStorge,
+  fileFilter: fileFilter,
+  limits: { fileSize: 1024 * 1024 * 5 }, // 5MB
+}).single('image')
+
+export const uploadUserImg = multer({
+  storage: userStorge,
+  fileFilter: fileFilter,
+  limits: { fileSize: 1024 * 1024 * 5 }, // 5MB
+}).single('image')
