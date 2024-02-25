@@ -8,6 +8,23 @@ import { createHttpError } from '../util/createHttpError'
 interface CustomRequest extends Request {
   userId?: string
 }
+// userId -> give the id of the user to the next middleware
+export const userId = async (req: CustomRequest, res: Response, next: NextFunction) => {
+  try {
+    const accessToken = req.cookies.access_token
+
+    if (accessToken) {
+      const decode = jwt.verify(accessToken, dev.app.jwtUserAccessKey) as JwtPayload
+      if (!decode) {
+        throw createHttpError(401, 'Invalid token or token expired')
+      }
+      req.userId = decode._id
+    }
+    return next()
+  } catch (error) {
+    return next(error)
+  }
+}
 
 export const isLoggedIn = (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
