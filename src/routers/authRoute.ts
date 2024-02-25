@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { rateLimit } from 'express-rate-limit';
 
 import { login, logout } from '../controller/authController';
-import { isLoggedOut, userId } from '../middlewares/auth';
+import { isLoggedIn, isLoggedOut, userId } from '../middlewares/auth';
 import { loginValidation, userValidation } from '../validation/vaildations';
 import { runValidation } from '../validation/runValidation';
 import { forgetPassword, resetPassword } from '../controller/usersController';
@@ -16,7 +16,7 @@ const router = Router();
 // });
 
 router.post('/login', userId, /*limiter*/ isLoggedOut, loginValidation, runValidation, login);
-router.post('/logout', logout);
+router.post('/logout',isLoggedIn, logout);
 // forget and reset password 
 router.post('/forget-password', isLoggedOut, forgetPassword)
 router.put('/reset-password', isLoggedOut, resetPassword)
