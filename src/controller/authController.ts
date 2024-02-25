@@ -21,6 +21,8 @@ export const login = async (req: CustomRequest, res: Response, next: NextFunctio
       payload: user,
     })
   } catch (error) {
+      console.log('error', error) 
+      
     next(error)
   }
 }
