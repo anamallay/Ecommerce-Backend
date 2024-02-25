@@ -47,7 +47,7 @@ export const isLoggedIn = (req: CustomRequest, res: Response, next: NextFunction
   }
 }
 
-export const isLoggedOut = (req: Request, res: Response, next: NextFunction) => {
+export const isLoggedOut = (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     const accessToken = req.cookies.access_token
     if (accessToken) {

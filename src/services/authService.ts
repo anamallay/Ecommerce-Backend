@@ -22,3 +22,22 @@ export const verifyUserData = async (req: Request) => {
     }
     return user;
 };
+
+// export const login = async (email: string, password: string) => {
+//   const usersExist = await User.findOne({ email: email })
+
+//   if (!usersExist) {
+//     throw createHttpError(404, 'User does not exist')
+//   }
+//   console.log('pass: ', password, 'usersExist.password: ', usersExist.password)
+//   const passwordMatch = await bcrypt.compare(password, usersExist.password)
+
+//   if (!passwordMatch) {
+//     throw createHttpError(404, 'Password does not match')
+//   }
+
+//   if (usersExist?.isBanned) {
+//     throw createHttpError(403, 'Unauthorized access, you are banned please contact admin@gmail.com')
+//   }
+//   return usersExist
+// }

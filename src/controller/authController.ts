@@ -3,8 +3,10 @@ import jwt from 'jsonwebtoken'
 
 import { verifyUserData } from '../services/authService'
 import { dev } from '../config'
-
-export const login = async (req: Request, res: Response, next: NextFunction) => {
+interface CustomRequest extends Request {
+  userId?: string
+}
+export const login = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     const user = await verifyUserData(req)
     const accessToken = jwt.sign({ _id: user._id }, dev.app.jwtUserAccessKey, { expiresIn: '30m' })
@@ -23,7 +25,7 @@ export const login = async (req: Request, res: Response, next: NextFunction) => 
   }
 }
 
-export const logout = async (req: Request, res: Response, next: NextFunction) => {
+export const logout = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     res.clearCookie('access_token')
     res.status(200).send({
