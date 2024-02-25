@@ -16,8 +16,8 @@ import { uploadUser } from '../middlewares/uploadFile'
 
 const router = Router()
 
-router.get('/', isLoggedIn, isAdmin, getAllUsers)
-router.get('/:id', isLoggedIn, getSingleUser)
+router.get('/',/*isLoggedIn, isAdmin,*/ getAllUsers)
+router.get('/:id',/* isLoggedIn, */getSingleUser)
 router.post(
   '/register',
   uploadUser.single('image'),
@@ -26,7 +26,7 @@ router.post(
   runValidation,
   registerUser
 )
-router.post('/activate-account/:token', isLoggedOut, activeUser)
+router.post('/activate-account/:token', /*isLoggedOut,*/ activeUser)
 router.put(
   '/:id',
   uploadUser.single('image'),
