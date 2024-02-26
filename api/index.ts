@@ -24,17 +24,17 @@ app.use(morgan('dev'))
 app.use(cookieParser())
 app.use('/public', express.static('public'))
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
-  res.header('Access-Control-Allow-Credentials', 'true')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  connectDB()
-  next()
-})
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+//   res.header('Access-Control-Allow-Credentials', 'true')
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+//   connectDB()
+//   next()
+// })
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://ecommerce-frontend-silk-three.vercel.app',
     credentials: true,
   })
 )
