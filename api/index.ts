@@ -34,7 +34,7 @@ app.use('/public', express.static('public'))
 
 app.use(
   cors({
-    origin: 'https://ecommerce-frontend-silk-three.vercel.app',
+    origin: 'https://ecommerce-frontend-kohl.vercel.app',
     credentials: true,
   })
 )
