@@ -235,7 +235,7 @@ export const forgetPassword = async (req: Request, res: Response, next: NextFunc
       throw createHttpError(409, 'User does not exist please register')
     }
     const token = jwt.sign({ email }, dev.app.jwtresetPassword, { expiresIn: '20m' })
-    const activationLink = `http://localhost:3000/resetpassword/${token}`
+    const activationLink = `https://ecommerce-frontend-kohl.vercel.app/resetpassword/${token}`
 
     const emailData: EmailDataType = {
       email,
