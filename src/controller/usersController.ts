@@ -98,7 +98,7 @@ export const registerUser = async (req: Request, res: Response, next: NextFuncti
       html: `
     <h1>Welcome to Our Service</h1>
     <p>Please click on the link below to activate your account:</p>
-    <a href="http://localhost:3000/users/activate-account/${token}">Activate Account</a>
+    <a href="https://ecommerce-frontend-kohl.vercel.app/users/activate-account/${token}">Activate Account</a>
     <p>Thank you for joining us!</p>`,
     }
     await handleSendEmail(emailData)
